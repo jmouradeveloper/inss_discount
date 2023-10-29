@@ -1,0 +1,40 @@
+<%= form_with(model: proponent) do |form| %>
+  <% if proponent.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(proponent.errors.count, "error") %> prohibited this proponent from being saved:</h2>
+
+      <ul>
+        <% proponent.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.label :cpf %>
+      <%= form.text_field :cpf %>
+    </div>
+    <div>
+      <%= form.label :birthdate %>
+      <%= form.date_field :birthdate %>
+    </div>
+
+    <div>
+      <%= form.label :wage %>
+      <%= form.number_field :wage,
+        value: number_to_currency(proponent.wage.to_f, delimiter: '', unit: ''),
+        step: :any
+      %>
+    </div>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
