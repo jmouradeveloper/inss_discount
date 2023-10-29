@@ -3,7 +3,7 @@ class ProponentsController < ApplicationController
 
   # GET /proponents or /proponents.json
   def index
-    @proponents = Proponent.all.order(:name).page(params[:page]).per(5)
+    @proponents = Proponent.order(:name).page(params[:page]).per(5)
   end
 
   # GET /proponents/1 or /proponents/1.json
