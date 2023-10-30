@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
+  root "proponents#index"
   resources :proponents
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  post 'financial/calculate_inss', to: 'financial#calculate_inss'
 end

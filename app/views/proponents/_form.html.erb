@@ -17,6 +17,14 @@
       <%= form.text_field :name %>
     </div>
     <div>
+      <%= form.label :wage %>
+      <%= form.number_field :wage,
+        value: number_to_currency(proponent.wage.to_f, delimiter: '', unit: ''),
+        step: :any
+      %>
+      <p id="inss_calculated_element"></p>
+    </div>
+    <div>
       <%= form.label :cpf %>
       <%= form.text_field :cpf %>
     </div>
@@ -24,17 +32,26 @@
       <%= form.label :birthdate %>
       <%= form.date_field :birthdate %>
     </div>
-
-    <div>
-      <%= form.label :wage %>
-      <%= form.number_field :wage,
-        value: number_to_currency(proponent.wage.to_f, delimiter: '', unit: ''),
-        step: :any
-      %>
-    </div>
   </div>
 
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+  $(document).ready(function () {
+    $('#proponent_wage').blur(function () {
+      $.ajax({
+        url: '/proponents/calculate_inss',
+        data: {
+          wage: $('#proponent_wage').val()
+        },
+        type: 'POST',
+        success: function (data, status, xhr) {
+          $('#inss_calculated_element').text("Valor do desconto do INSS: " + data.amount);
+        }
+      });
+    })
+  })
+</script>
