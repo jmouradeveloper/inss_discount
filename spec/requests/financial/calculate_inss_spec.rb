@@ -5,7 +5,7 @@ RSpec.describe "Calculate INSS", type: :request do
     let(:wage) { '3000' }
 
     before do
-      expect(InssDiscountCalculator).to receive(:call).with(wage: wage).and_return(281.62)
+      expect(Financial::InssDiscountCalculator).to receive(:call).with(wage: wage).and_return(281.62)
       post financial_calculate_inss_path, params: { wage: wage }
     end
 

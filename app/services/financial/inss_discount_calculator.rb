@@ -1,4 +1,4 @@
-class InssDiscountCalculator
+class Financial::InssDiscountCalculator
   class << self
     def call(wage:)
       wage = wage.to_f
