@@ -43,7 +43,7 @@
   $(document).ready(function () {
     $('#proponent_wage').blur(function () {
       $.ajax({
-        url: '/proponents/calculate_inss',
+        url: '/financial/calculate_inss',
         data: {
           wage: $('#proponent_wage').val()
         },
