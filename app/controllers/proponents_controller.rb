@@ -57,6 +57,12 @@ class ProponentsController < ApplicationController
     end
   end
 
+  # POST /proponents/report
+  def report
+    proponents = Proponent.all
+    @proponents_by_wage_rage = Proponents::ReportCreator.call(proponents)
+  end
+
   private
 
   def set_proponent

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root "proponents#index"
-  resources :proponents
+
+  resources :proponents do
+    get 'report', on: :collection
+  end
 
   post 'financial/calculate_inss', to: 'financial#calculate_inss'
 end
