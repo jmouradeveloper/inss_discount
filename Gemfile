@@ -7,6 +7,7 @@ ruby "3.1.1"
 
 gem "bootsnap", require: false
 gem "bootstrap", '~> 5.2.0'
+gem "hotwire-rails", "~> 0.1.3"
 gem "importmap-rails"
 gem "jbuilder"
 gem "kaminari"
