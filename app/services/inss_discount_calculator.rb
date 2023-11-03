@@ -16,7 +16,7 @@ class InssDiscountCalculator
     end
 
     def calculate_inss(wage, tax_match)
-      taxes_by_wage_range.reduce(0) do |amount, (tax, value)|
+      inss_value = taxes_by_wage_range.reduce(0) do |amount, (tax, value)|
         actual_max_value = value[:wage_range].last
         actual_min_value = value[:wage_range].first
         previous_max_value = last_iteration_max_value(actual_min_value)
@@ -28,6 +28,8 @@ class InssDiscountCalculator
 
         calculation_result(actual_max_value, previous_max_value, tax_percentage) + amount
       end
+
+      inss_value.ceil(2)
     end
 
     def taxes_by_wage_range
