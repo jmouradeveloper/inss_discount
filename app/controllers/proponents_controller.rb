@@ -59,8 +59,15 @@ class ProponentsController < ApplicationController
 
   # POST /proponents/report
   def report
-    proponents = Proponent.all
-    @proponents_by_wage_rage = Proponents::ReportCreator.call(proponents)
+    proponents                = Proponent.all
+    @proponents_by_wage_range = Proponents::Grouper.by_wage_range(proponents)
+
+    respond_to do |format|
+      format.html
+      format.json do
+        render json: { report_data: @proponents_by_wage_range }, status: :ok
+      end
+    end
   end
 
   private

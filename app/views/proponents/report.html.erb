@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Porponents Report</h1>
+
+<div id="proponents">
+  <% @proponents_by_wage_range.each do |wage_range| %>
+    <p>
+      <h3>
+        <%= wage_range.first.to_s.camelize %>
+      </h3>
+
+      <% wage_range.second.each do |proponent| %>
+        <%= proponent[:name] %>
+        <%= proponent[:cpf] %>
+        <br/>
+      <% end %>
+    </p>
+  <% end %>
+
+  <div data-controller="report">
+    <canvas id="bar-chart" data-report-target="proponents" width="800" height="450">
+    </canvas>
+  </div>
+</div>
+
