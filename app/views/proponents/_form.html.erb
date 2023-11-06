@@ -16,13 +16,15 @@
       <%= form.label :name %>
       <%= form.text_field :name %>
     </div>
-    <div>
+    <div data-controller="financial">
       <%= form.label :wage %>
       <%= form.number_field :wage,
-        value: number_to_currency(proponent.wage.to_f, delimiter: '', unit: ''),
-        step: :any
+        value: number_to_currency(proponent.wage.to_f, delimiter: "", unit: ""),
+        step: :any,
+        data: { action: "blur->financial#calculateInss", 'financial-target' => "wage" }
       %>
-      <p id="inss_calculated_element"></p>
+
+      <div data-financial-target="inss"></div>
     </div>
     <div>
       <%= form.label :cpf %>
@@ -38,20 +40,3 @@
     <%= form.submit %>
   </div>
 <% end %>
-
-<script>
-  $(document).ready(function () {
-    $('#proponent_wage').blur(function () {
-      $.ajax({
-        url: '/financial/calculate_inss',
-        data: {
-          wage: $('#proponent_wage').val()
-        },
-        type: 'POST',
-        success: function (data, status, xhr) {
-          $('#inss_calculated_element').text("Valor do desconto do INSS: " + data.amount);
-        }
-      });
-    })
-  })
-</script>
