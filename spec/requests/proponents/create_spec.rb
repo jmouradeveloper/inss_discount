@@ -1,6 +1,8 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.describe "Create Proponent", type: :request do
+require 'rails_helper'
+
+RSpec.describe 'Create Proponent', type: :request do
   subject { post proponents_path, params: proponent_params }
 
   context 'on success' do

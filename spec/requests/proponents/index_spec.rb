@@ -1,6 +1,8 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.describe "List Proponent", type: :request do
+require 'rails_helper'
+
+RSpec.describe 'List Proponent', type: :request do
   context 'on success' do
     let(:default_per_page) { 5 }
     let(:three_pages_of_proponents) { (default_per_page * 2) + 1 }

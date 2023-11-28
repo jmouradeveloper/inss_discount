@@ -1,12 +1,14 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.describe "Calculate INSS", type: :request do
+require 'rails_helper'
+
+RSpec.describe 'Calculate INSS', type: :request do
   context 'on success' do
     let(:wage) { '3000' }
 
     before do
-      expect(Financial::InssDiscountCalculator).to receive(:call).with(wage: wage).and_return(281.62)
-      post financial_calculate_inss_path, params: { wage: wage }
+      expect(Financial::InssDiscountCalculator).to receive(:call).with(wage:).and_return(281.62)
+      post financial_calculate_inss_path, params: { wage: }
     end
 
     it do

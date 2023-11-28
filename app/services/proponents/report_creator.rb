@@ -1,13 +1,15 @@
-class Proponents::ReportCreator
-  class << self
-    def call(proponents)
-      [1, 2, 3]
-    end
+# frozen_string_literal: true
 
-    private
+module Proponents
+  class ReportCreator
+    class << self
+      def call(_proponents)
+        [1, 2, 3]
+      end
 
-    def private_method
-      
+      private
+
+      def private_method; end
     end
   end
 end

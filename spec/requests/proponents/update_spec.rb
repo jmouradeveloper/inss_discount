@@ -1,6 +1,8 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.describe "Edit Proponent", type: :request do
+require 'rails_helper'
+
+RSpec.describe 'Edit Proponent', type: :request do
   let!(:proponent) { create(:proponent, name: 'Original Proponent') }
 
   subject { put proponent_path(proponent), params: proponent_params }
@@ -11,8 +13,8 @@ RSpec.describe "Edit Proponent", type: :request do
         proponent: {
           name: 'Edited Proponent',
           cpf: '123.456.789-10',
-          birthdate: DateTime.parse("1993-05-10 10:30:14"),
-          wage: 12400.53
+          birthdate: DateTime.parse('1993-05-10 10:30:14'),
+          wage: 12_400.53
         }
       }
     end

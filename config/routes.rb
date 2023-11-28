@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  root "proponents#index"
+  root 'proponents#index'
 
   resources :proponents do
     get 'report', on: :collection

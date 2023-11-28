@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module InssTaxes
   module Constants
     TAX_BY_WAGE_RANGE = {
@@ -13,6 +15,6 @@ module InssTaxes
       14 => {
         wage_range: 3_134.41...6_101.06
       }
-    }
+    }.freeze
   end
 end
