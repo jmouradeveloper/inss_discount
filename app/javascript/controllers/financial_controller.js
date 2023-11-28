@@ -15,7 +15,7 @@ export default class extends Controller {
       },
       type: "POST",
       success: function (data, _status, _xhr) {
-        inssValue.setHTML("Valor do desconto do INSS: " + data.amount);
+        inssValue.replaceWith(`Valor do desconto do INSS: ${data.amount}`);
       }
     });
   }

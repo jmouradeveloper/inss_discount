@@ -24,7 +24,9 @@
         data: { action: "blur->financial#calculateInss", 'financial-target' => "wage" }
       %>
 
-      <div data-financial-target="inss"></div>
+      <div id="tax">
+        <p style="margin: 0px;" data-financial-target="inss">Valor do desconto do INSS: </p>
+      </div>
     </div>
     <div>
       <%= form.label :cpf %>
