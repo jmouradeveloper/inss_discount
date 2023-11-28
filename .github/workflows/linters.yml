@@ -1,16 +1,16 @@
-name: Linters
-run-name: ${{ github.actor }} is triggering this GitHub Actions 🚀
+name: Rubocop
 
 on: [push]
-
 jobs:
-  build:
+  rubocop:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v1
-      - name: RuboCop Linter
-        uses: andrewmcodes/rubocop-linter-action@v3.3.0
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          action_config_path: ".github/config/rubocop.yml"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          bundler-cache: true
+      - name: Run rubocop
+        run: |
+          bundle exec rubocop
