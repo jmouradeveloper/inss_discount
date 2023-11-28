@@ -1,0 +1,10 @@
+on: [push]
+run-name: ${{ github.actor }} is triggering this GitHub Actions 🚀
+jobs:
+  rubocop:
+    name: Rubocop Linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Rubocop checks
+        uses: gimenete/rubocop-action@1.0
+          
