@@ -1,10 +1,16 @@
-on: [push]
+name: Linters
 run-name: ${{ github.actor }} is triggering this GitHub Actions 🚀
+
+on: [push]
+
 jobs:
-  rubocop:
-    name: Rubocop Linter
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Rubocop checks
-        uses: gimenete/rubocop-action@1.0
-          
+      - uses: actions/checkout@v1
+      - name: RuboCop Linter
+        uses: andrewmcodes/rubocop-linter-action@v3.3.0
+        with:
+          action_config_path: ".github/config/rubocop.yml"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
