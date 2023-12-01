@@ -3,7 +3,6 @@
 
 Projeto teste para aplicação de valor de desconto de INSS em salários de proponentes.
 
-
 ## Funcionalidades
 
 - Criação edição e exclusão de proponentes.
@@ -67,6 +66,13 @@ Para finalizar a implantação deve-se rodar o comando a seguir para criar o ban
 ```
 
 Então você pode acessar via navegador o endereço local http://localhost:3000 para acessar a aplicação.
+
+É necessário também subir a aplicação do sidekiq para que a atualização assíncrona do salário dos proponentes sejam executadas.
+
+```bash
+  bundle exec sidekiq
+```
+
 ## Rodando os testes
 
 Caso tenha instalado a aplicação utilizando o Docker é possível rodar os testes com o seguinte comando, após subir a aplicação local:
