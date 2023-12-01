@@ -94,3 +94,10 @@ Para realizar a análise estática do código localmente:
   # se rodando sem docker
   rubocop
 ```
+
+Para acessar a análise estática de código automatizado no Github actions acesse:
+https://github.com/jmouradeveloper/inss_discount/actions
+
+## Documentação de Funcionalidades
+
+Acesse o [link da documentação](https://github.com/jmouradeveloper/inss_discount/tree/main/docs) e navegue entre as funcionalidades.
