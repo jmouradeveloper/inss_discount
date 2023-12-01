@@ -28,5 +28,18 @@ services:
     image: redis:alpine
     ports:
       - "6379:6379"
+    volumes:
+    - redis_data:/data
+
+  sidekiq:
+    build: .
+    command: bundle exec sidekiq
+    volumes:
+      - .:/inss_discount
+    depends_on:
+      - db
+      - redis
+
 volumes:
   gem_cache:
+  redis_data:
