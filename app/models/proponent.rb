@@ -6,4 +6,10 @@ class Proponent < ApplicationRecord
 
   validates :name, :cpf, :birthdate, presence: true
   validates :cpf, length: { is: 14 }
+
+  def update(params)
+    UpdateWageJob.perform_async(id, params[:wage])
+
+    super(params.except(:wage))
+  end
 end
