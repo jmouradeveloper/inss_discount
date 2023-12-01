@@ -11,6 +11,6 @@ RSpec.describe 'Report Proponent List', type: :request do
 
     it { should render_template('report') }
     it { expect(response).to have_http_status(:ok) }
-    it { expect(assigns(:proponents_by_wage_rage)).to be_truthy }
+    it { expect(assigns(:proponents_by_wage_range)).to be_truthy }
   end
 end
