@@ -10,7 +10,6 @@ RSpec.describe 'Edit Proponent', type: :request do
   subject { put proponent_path(proponent), params: proponent_params }
 
   context 'on success' do
-
     before do
       expect(UpdateWageJob).to receive(:perform_async)
         .with(proponent.id, proponent_params[:proponent][:wage].to_s)
